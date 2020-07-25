@@ -1,0 +1,330 @@
+{
+  "elements": [
+    {
+      "type": "ExpansionPanel",
+      "caption": "Informationen",
+      "items": [
+        {
+          "type": "Label",
+          "caption": "Mit dieser Instanz kann ein Fensterstatus mittels zwei Sensoren ermittelt werden.\nWeitere Informationen entnehmen Sie bitte der Dokumentation.\n"
+        },
+        {
+          "type": "Label",
+          "caption": "Name:\t\t\tFensterstatus"
+        },
+        {
+          "type": "Label",
+          "caption": "Präfix:\t\t\tFST"
+        },
+        {
+          "type": "Label",
+          "caption": "Instanz ID:"
+        },
+        {
+          "type": "Label",
+          "caption": "Version:\t\t\t1.00-3"
+        },
+        {
+          "type": "Label",
+          "caption": "Datum:\t\t\t29. Mai 2020"
+        },
+        {
+          "type": "Label",
+          "caption": "Uhrzeit:\t\t\t18:00"
+        },
+        {
+          "type": "Label",
+          "caption": "Entwickler:\t\tUlrich Bittner"
+        },
+        {
+          "type": "Label",
+          "caption": "Status:\t\t\t0 = geschlossen\n\t\t\t\t1 = gekippt\n\t\t\t\t2 = geöffnet"
+        },
+        {
+          "type": "ValidationTextBox",
+          "name": "Note",
+          "caption": "Notiz",
+          "width": "600px"
+        }
+      ]
+    },
+    {
+      "type": "ExpansionPanel",
+      "caption": "Sensoren",
+      "items": [
+        {
+          "type": "ExpansionPanel",
+          "caption": "Sensor 1",
+          "items": [
+            {
+              "type": "Label",
+              "caption": "Bitte wählen Sie die Statusvariable für den ersten Sensor aus:"
+            },
+            {
+              "type": "SelectVariable",
+              "name": "Sensor1",
+              "caption": "Statusvariable",
+              "width": "600px"
+            }
+          ]
+        },
+        {
+          "type": "ExpansionPanel",
+          "caption": "Sensor 2",
+          "items": [
+            {
+              "type": "Label",
+              "caption": "Bitte wählen Sie die Statusvariable für den zweiten Sensor aus:"
+            },
+            {
+              "type": "SelectVariable",
+              "name": "Sensor2",
+              "caption": "Statusvariable",
+              "width": "600px"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ExpansionPanel",
+      "caption": "Status",
+      "items": [
+        {
+          "type": "ExpansionPanel",
+          "caption": "Geschlossen",
+          "items": [
+            {
+              "type": "Label",
+              "caption": "Bitte wählen Sie die Kombination für den geschlossenen Zustand aus:"
+            },
+            {
+              "type": "Select",
+              "name": "ClosedStatus",
+              "caption": "Gechlossen",
+              "width": "600px",
+              "options": [
+                {
+                  "caption": "Sensor 1 = 0, false | Sensor 2 = 0, false",
+                  "value": 0
+                },
+                {
+                  "caption": "Sensor 1 = 0, false | Sensor 2 = 1, true",
+                  "value": 1
+                },
+                {
+                  "caption": "Sensor 1 = 1, true | Sensor 2 = 0, false",
+                  "value": 2
+                },
+                {
+                  "caption": "Sensor 1 = 1, true | Sensor 2 = 1, true",
+                  "value": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "ExpansionPanel",
+          "caption": "Gekippt",
+          "items": [
+            {
+              "type": "Label",
+              "caption": "Bitte wählen Sie die Kombination für den gekippten Zustand aus:"
+            },
+            {
+              "type": "Select",
+              "name": "TiltedStatus",
+              "caption": "Gekippt",
+              "width": "600px",
+              "options": [
+                {
+                  "caption": "Sensor 1 = 0, false | Sensor 2 = 0, false",
+                  "value": 0
+                },
+                {
+                  "caption": "Sensor 1 = 0, false | Sensor 2 = 1, true",
+                  "value": 1
+                },
+                {
+                  "caption": "Sensor 1 = 1, true | Sensor 2 = 0, false",
+                  "value": 2
+                },
+                {
+                  "caption": "Sensor 1 = 1, true | Sensor 2 = 1, true",
+                  "value": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "ExpansionPanel",
+          "caption": "Geöffnet",
+          "items": [
+            {
+              "type": "Label",
+              "caption": "Bitte wählen Sie die Kombination für den geöffneten Zustand aus:"
+            },
+            {
+              "type": "Select",
+              "name": "OpenedStatus",
+              "caption": "Geöffnet",
+              "width": "600px",
+              "options": [
+                {
+                  "caption": "Sensor 1 = 0, false | Sensor 2 = 0, false",
+                  "value": 0
+                },
+                {
+                  "caption": "Sensor 1 = 0, false | Sensor 2 = 1, true",
+                  "value": 1
+                },
+                {
+                  "caption": "Sensor 1 = 1, true | Sensor 2 = 0, false",
+                  "value": 2
+                },
+                {
+                  "caption": "Sensor 1 = 1, true | Sensor 2 = 1, true",
+                  "value": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "ExpansionPanel",
+      "caption": "Konfiguration",
+      "items": [
+        {
+          "type": "Button",
+          "caption": "Neu einlesen",
+          "onClick": "FST_ReloadConfiguration($id);"
+        },
+        {
+          "type": "RowLayout",
+          "items": [
+            {
+              "type": "SelectCategory",
+              "name": "BackupCategory",
+              "caption": "Kategorie",
+              "width": "600px"
+            },
+            {
+              "type": "Label",
+              "caption": " "
+            },
+            {
+              "type": "Button",
+              "caption": "Sichern",
+              "onClick": "FST_CreateBackup($id, $BackupCategory);"
+            }
+          ]
+        },
+        {
+          "type": "RowLayout",
+          "items": [
+            {
+              "type": "SelectScript",
+              "name": "ConfigurationScript",
+              "caption": "Konfigurationsskript",
+              "width": "600px"
+            },
+            {
+              "type": "Label",
+              "caption": " "
+            },
+            {
+              "type": "PopupButton",
+              "caption": "Wiederherstellen",
+              "popup": {
+                "caption": "Konfiguration wirklich wiederherstellen?",
+                "items": [
+                  {
+                    "type": "Button",
+                    "caption": "Wiederherstellen",
+                    "onClick": "FST_RestoreConfiguration($id, $ConfigurationScript);"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ExpansionPanel",
+      "caption": "Registrierte Nachrichten",
+      "items": [
+        {
+          "type": "List",
+          "name": "RegisteredMessages",
+          "caption": "Registrierte Nachrichten",
+          "rowCount": 4,
+          "sort": {
+            "column": "Description",
+            "direction": "ascending"
+          },
+          "columns": [
+            {
+              "name": "Description",
+              "caption": "Bezeichnung",
+              "width": "350px"
+            },
+            {
+              "name": "SenderID",
+              "caption": "Sender ID",
+              "width": "110px"
+            },
+            {
+              "name": "SenderName",
+              "caption": "Sender Name",
+              "width": "250px"
+            },
+            {
+              "name": "MessageID",
+              "caption": "Nachrichten ID",
+              "width": "140px"
+            },
+            {
+              "name": "MessageDescription",
+              "caption": "Nachrichten Bezeichnung",
+              "width": "220px"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "status": [
+    {
+      "code": 101,
+      "icon": "active",
+      "caption": "Fensterstatus wird erstellt"
+    },
+    {
+      "code": 102,
+      "icon": "active",
+      "caption": "Fensterstatus ist aktiv"
+    },
+    {
+      "code": 103,
+      "icon": "active",
+      "caption": "Fensterstatus wird gelöscht"
+    },
+    {
+      "code": 104,
+      "icon": "inactive",
+      "caption": "Fensterstatus ist inaktiv"
+    },
+    {
+      "code": 200,
+      "icon": "inactive",
+      "caption": "Es ist Fehler aufgetreten, weitere Informationen unter Meldungen oder im Log"
+    }
+  ]
+}

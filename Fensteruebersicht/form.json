@@ -1,0 +1,274 @@
+{
+  "elements": [
+    {
+      "type": "ExpansionPanel",
+      "caption": "Informationen",
+      "items": [
+        {
+          "type": "Label",
+          "caption": "Mit dieser Instanz kann eine Übersicht von mehreren Fensterstatus angezeigt werden.\nWeitere Informationen entnehmen Sie bitte der Dokumentation.\n"
+        },
+        {
+          "type": "Label",
+          "caption": "Name:\t\t\tFensterübersicht"
+        },
+        {
+          "type": "Label",
+          "caption": "Präfix:\t\t\tFUEB"
+        },
+        {
+          "type": "Label",
+          "caption": "Instanz ID:"
+        },
+        {
+          "type": "Label",
+          "caption": "Version:\t\t\t1.00-3"
+        },
+        {
+          "type": "Label",
+          "caption": "Datum:\t\t\t29. Mai 2020"
+        },
+        {
+          "type": "Label",
+          "caption": "Uhrzeit:\t\t\t18:00"
+        },
+        {
+          "type": "Label",
+          "caption": "Entwickler:\t\tUlrich Bittner"
+        },
+        {
+          "type": "ValidationTextBox",
+          "name": "Note",
+          "caption": "Notiz",
+          "width": "600px"
+        }
+      ]
+    },
+    {
+      "type": "ExpansionPanel",
+      "caption": "Statusvariablen",
+      "items": [
+        {
+          "type": "Label",
+          "caption": "Bitte fügen Sie die Statusvariablen der Fenster hinzu:"
+        },
+        {
+          "type": "List",
+          "name": "MonitoredVariables",
+          "caption": "",
+          "rowCount": 20,
+          "add": true,
+          "delete": true,
+          "columns": [
+            {
+              "name": "Use",
+              "caption": "Aktiviert",
+              "width": "100px",
+              "add": true,
+              "edit": {
+                "type": "CheckBox"
+              }
+            },
+            {
+              "name": "ID",
+              "caption": "Variable",
+              "width": "350px",
+              "add": 0,
+              "edit": {
+                "type": "SelectVariable"
+              }
+            },
+            {
+              "name": "Description",
+              "caption": "Bezeichnung",
+              "width": "350px",
+              "add": "",
+              "edit": {
+                "type": "ValidationTextBox"
+              }
+            },
+            {
+              "name": "Profile",
+              "caption": "Profil",
+              "width": "350px",
+              "add": 0,
+              "edit": {
+                "type": "Select",
+                "options": [
+                  {
+                    "caption": "geschlossen: 0, false | geöffnet: 1, true",
+                    "value": 0
+                  },
+                  {
+                    "caption": "geschlossen: 1, true | geöffnet: 0, false",
+                    "value": 1
+                  },
+                  {
+                    "caption": "geschlossen: 0 | gekippt: 1 | geöffnet: 2",
+                    "value": 2
+                  },
+                  {
+                    "caption": "geschlossen: 2 | gekippt: 1 | geöffnet: 0",
+                    "value": 3
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "ExpansionPanel",
+      "caption": "Konfiguration",
+      "items": [
+        {
+          "type": "Button",
+          "caption": "Neu einlesen",
+          "onClick": "FUEB_ReloadConfiguration($id);"
+        },
+        {
+          "type": "RowLayout",
+          "items": [
+            {
+              "type": "SelectCategory",
+              "name": "BackupCategory",
+              "caption": "Kategorie",
+              "width": "600px"
+            },
+            {
+              "type": "Label",
+              "caption": " "
+            },
+            {
+              "type": "Button",
+              "caption": "Sichern",
+              "onClick": "FUEB_CreateBackup($id, $BackupCategory);"
+            }
+          ]
+        },
+        {
+          "type": "RowLayout",
+          "items": [
+            {
+              "type": "SelectScript",
+              "name": "ConfigurationScript",
+              "caption": "Konfigurationsskript",
+              "width": "600px"
+            },
+            {
+              "type": "Label",
+              "caption": " "
+            },
+            {
+              "type": "PopupButton",
+              "caption": "Wiederherstellen",
+              "popup": {
+                "caption": "Konfiguration wirklich wiederherstellen?",
+                "items": [
+                  {
+                    "type": "Button",
+                    "caption": "Wiederherstellen",
+                    "onClick": "FUEB_RestoreConfiguration($id, $ConfigurationScript);"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ExpansionPanel",
+      "caption": "Registrierte Nachrichten",
+      "items": [
+        {
+          "type": "List",
+          "name": "RegisteredMessages",
+          "caption": "Registrierte Nachrichten",
+          "rowCount": 10,
+          "sort": {
+            "column": "Description",
+            "direction": "ascending"
+          },
+          "columns": [
+            {
+              "name": "Description",
+              "caption": "Bezeichnung",
+              "width": "350px"
+            },
+            {
+              "name": "SenderID",
+              "caption": "Sender ID",
+              "width": "110px"
+            },
+            {
+              "name": "SenderName",
+              "caption": "Sender Name",
+              "width": "250px"
+            },
+            {
+              "name": "MessageID",
+              "caption": "Nachrichten ID",
+              "width": "140px"
+            },
+            {
+              "name": "MessageDescription",
+              "caption": "Nachrichten Bezeichnung",
+              "width": "220px"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ExpansionPanel",
+      "caption": "Variablen",
+      "items": [
+        {
+          "type": "PopupButton",
+          "caption": "Homematic Variablen automatisch ermitteln",
+          "popup": {
+            "caption": "Homematic Variablen wirklich automatisch ermitteln?",
+            "items": [
+              {
+                "type": "Button",
+                "caption": "Homematic Variablen ermitteln",
+                "onClick": "FUEB_DetermineHomematicVariables($id);"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "status": [
+    {
+      "code": 101,
+      "icon": "active",
+      "caption": "Fensterübersicht wird erstellt"
+    },
+    {
+      "code": 102,
+      "icon": "active",
+      "caption": "Fensterübersicht ist aktiv"
+    },
+    {
+      "code": 103,
+      "icon": "active",
+      "caption": "Fensterübersicht wird gelöscht"
+    },
+    {
+      "code": 104,
+      "icon": "inactive",
+      "caption": "Fensterübersicht ist inaktiv"
+    },
+    {
+      "code": 200,
+      "icon": "inactive",
+      "caption": "Es ist Fehler aufgetreten, weitere Informationen unter Meldungen oder im Log"
+    }
+  ]
+}

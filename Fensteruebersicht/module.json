@@ -1,0 +1,14 @@
+{
+  "id": "{F77693E4-F24B-39FA-16A7-C5D1CBD519B3}",
+  "name": "Fensteruebersicht",
+  "type": 3,
+  "vendor": "UB",
+  "url": "https://github.com/ubittner/Fensterstatus/Fensterübersicht",
+  "aliases": [
+    "Fensterübersicht"
+  ],
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "FUEB"
+}

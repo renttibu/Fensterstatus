@@ -1,0 +1,14 @@
+{
+  "id": "{5FEFEBA6-CA4E-A318-C9F4-2FDCD48A6041}",
+  "name": "Fensterstatus",
+  "type": 3,
+  "vendor": "UB",
+  "url": "https://github.com/ubittner/Fensterstatus/Fensterstatus",
+  "aliases": [
+    "Fensterstatus"
+  ],
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "FST"
+}

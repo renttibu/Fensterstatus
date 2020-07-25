@@ -1,0 +1,12 @@
+{
+  "id": "{0E014EC3-EF16-44D9-1D23-D71B7F1DC287}",
+  "author": "Ulrich Bittner",
+  "name": "Fensterstatus",
+  "url": "https://github.com/ubittner/Fensterstatus",
+  "compatibility": {
+    "version": "5.3"
+  },
+  "version": "1.00",
+  "build": 3,
+  "date": 1590771600
+}
